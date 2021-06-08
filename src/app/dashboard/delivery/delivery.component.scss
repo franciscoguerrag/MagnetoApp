@@ -1,0 +1,108 @@
+/* Bordered form */
+form {
+  border: 3px solid #f1f1f1;
+}
+
+/* Set a style for all buttons */
+.button_new {
+  border: none;
+  cursor: pointer;
+}
+
+/* Set a style for all buttons */
+.button_new_hide {
+  border: none;
+  cursor: pointer;
+}
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+/* Avatar image */
+img.avatar {
+  width: 40%;
+  border-radius: 20%;
+}
+
+
+.tittle {
+  background-color: lightgrey;
+  color: white;
+  padding: 14px 20px;
+  text-align: center;
+}
+
+.subtittle {
+  background-color: rgb(210, 243, 217);
+  color: black;
+  padding: 14px 20px;
+  text-align: left;
+  font-size: 12px;
+  height: 8px;
+}
+
+.button_icon {
+  border: none;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.button_icon_image {
+  border-radius: 50%;
+  cursor: pointer;
+  height: 27px;
+}
+
+.productList {
+  display: flex;
+  padding-top: 25px;
+  justify-content: space-around;
+  text-align: center;
+}
+
+
+/* Add padding to containers */
+.container {
+  padding: 10px;
+}
+
+/* Bordered form */
+.form {
+  border: 3px solid #f1f1f1;
+}
+
+.form_fields {
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  padding-bottom: 5px;
+}
+
+.form_row {
+  display: flex;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 18px;
+  color:green;  
+  height: 40px;
+}
+
+.delivery_exit {
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.delivery_exit_image {
+  border-radius: 70%;
+  width: 60px;
+}
+
+.productListDetail {
+  overflow-y: auto;
+  height: 350px;
+}
+
+

@@ -1,0 +1,119 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="imgcontainer">
+  <img src="assets/LOGO_DISTRIFINCA.jpg" alt="Avatar" class="avatar">
+</div>
+<div class="tittle">
+  NUESTRO INVENTARIO
+</div>
+<div class="subtittle">
+  INGRESO DE PRODUCTOS
+</div>
+<div class="container">
+<form [formGroup]="receiptsForm"  id="receipts_form">
+  <div>
+      <div class="form_fields">
+        <div class="form_row">
+          <div style="width: 200px;">
+              Recibe
+          </div>
+          <div>
+            <select formControlName="seller_name"  style="width: 600px; height: 20px;">
+              <option [ngValue]="null" disabled>Selecciona el vendedor</option>
+              <option *ngFor="let seller of sellers" [ngValue]="seller.name">
+              {{ seller.name }}
+              </option>
+            </select> 
+          </div>
+        </div>
+       
+        <div class="form_row">
+          <div style="width: 200px;">
+              Transportador
+          </div>
+          <div>
+            <select formControlName="delivery_name"  style="width: 600px; height: 20px;">
+              <option [ngValue]="null" disabled>Selecciona el Transportador</option>
+              <option *ngFor="let delivery of deliveries" [ngValue]="delivery.name">
+              {{ delivery.name }}
+              </option>
+            </select> 
+          </div>
+        </div>
+      </div>
+  </div>
+  <div *ngIf="showButtonSave" style="padding-left: 20px;">
+    <button (click)="saveProductGroup()" class="button_new">
+      <img src="assets/salvar.png" alt='Guardar Cambios' style="height: 40px;" >
+    </button>
+  </div>
+  <div *ngIf="!showButtonSave" style="padding-left: 20px;">
+    <button (click)="saveProductGroup()" class="button_new_hide"  disabled=true>
+      <img src="assets/errorSalvar.png" alt='Guardar Cambios' style="height: 40px;" >
+    </button>
+    <span style="font-size: 12px;color: red;">
+      Debes agregar nuevos productos</span>
+  </div>
+  <div class="container_products">
+    <div class="productList">
+      <div style="height: 30px; width: 500px;">
+        Producto Vendido
+      </div>
+      <div style="height: 30px; width: 60px;">
+        Cantidad
+      </div>
+      <div style="height: 30px; width: 50px;">Agregar</div>
+      <div style="height: 30px; width: 50px;">Eliminar</div>
+    </div>
+    <div class="productListDetail">
+      <div  *ngFor="let productGroup of receiptsForm.get('products')['controls'];let i = index" [formGroup]="productGroup">
+          <div class="productList">
+            <div style="height: 30px; width: 500px;">
+              <ng-autocomplete formControlName="product" style="height: 30px; width: 500px;"
+                [data]="products"
+                [searchKeyword]="keyword"
+                placeholder="Ingresa el producto"
+                (selected)='selectEvent($event)'
+                (inputChanged)='onChangeSearch($event)'
+                (inputFocused)='onFocused($event)'
+                historyIdentifier="products"
+                [itemTemplate]="itemTemplate"
+                [notFoundTemplate]="notFoundTemplate"
+                (click)="detectChanges(i)"
+                >
+              </ng-autocomplete>
+              <span *ngIf="showProductErrorMessage[i] == 'invalid'">
+                Ouch!, Por favor selecciona un producto del inventario</span>
+              <ng-template #itemTemplate let-item>
+              <a [innerHTML]="item.name"></a>
+              </ng-template>
+
+              <ng-template #notFoundTemplate let-notFound>
+              <div [innerHTML]="notFound"></div>
+              </ng-template>
+            </div> 
+            <div style="height: 30px; width: 60px;">
+              <input formControlName="quantity" placeholder="Cantidad" style="height: 30px; width: 60px;" (change)="validQuantity(i)"> 
+              <span *ngIf="showProductQuantityErrorMessage[i] == 'invalid'">
+                Ouch!, Solo Numeros</span>
+            </div>
+            <div style="height: 30px; width: 50px;">
+              <button (click)="addProductGroup(i)" class="button_icon">
+                <img src="assets/add.png" class="button_icon_image">
+              </button>
+            </div>
+            <div style="height: 30px; width: 50px;">
+              <button (click)="deleteProductGroup(i)" class="button_icon">
+                <img src="assets/remove.png" class="button_icon_image" >
+              </button>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  <button type="submit" id="delivery_exit" [routerLink]="['/dashboard']" class="delivery_exit">
+    <img src="assets/exit.png" class="delivery_exit_image" alt="Salir">
+  </button>
+</div>
+</form>
+</div>

@@ -1,0 +1,39 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="imgcontainer">
+  <img src="assets/LOGO_DISTRIFINCA.jpg" alt="Avatar" class="avatar">
+</div>
+<div class="tittle">
+  NUESTRO INVENTARIO
+</div>
+<div class="container-main">
+    <div class="icono">
+      <a [routerLink]="['/dashboard/delivery']" id="delivery_redirect" class="dashboard_link">
+      <div>
+          <img src="assets/delivery.png" alt="Avatar" class="avatar">
+      </div>
+      <div><span>SALIDAS</span></div>
+      </a>
+    </div>
+    <div class="icono">
+      <a [routerLink]="['/dashboard/receipts']" id="buy_redirect" class="dashboard_link" >
+      <div>
+          <img src="assets/stock.png" alt="Avatar" class="avatar">
+      </div>
+      <div><span>INGRESOS</span></div>
+      </a>
+    </div>
+    <div class="icono">
+      <a [routerLink]="['/dashboard/inventory']" id="stock_redirect" class="dashboard_link" >
+      <div>
+          <img src="assets/buy.png" alt="Avatar" class="avatar">
+      </div>
+      <div><span>CONSOLIDADO</span></div>
+      </a>
+    </div>
+</div>
+<div>
+  <button type="submit" id="dashboard_exit" [routerLink]="['/login']" class="dashboard_exit">
+    <img src="assets/exit.png" class="dashboard_exit_image" alt="Salir">
+  </button>
+</div>
+

@@ -1,0 +1,33 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="imgcontainer">
+  <img src="assets/LOGO_DISTRIFINCA.jpg" alt="Avatar" class="avatar">
+</div>
+<div class="tittle">
+  NUESTRO INVENTARIO
+</div>
+<div class="container">
+<form [formGroup]="signInForm" (ngSubmit)="onSubmit()"  id="login_form">
+  <div>
+      <div class="wellcome">
+         BIENVENIDO
+      </div>
+      <div class="form-group">
+          <input type="text" formControlName="user" placeholder="Usuario" id="login_user">
+      </div>
+      <div class="form-group">
+          <input type="password" formControlName="password"  placeholder="Contraseña" id="login_password">
+      </div>
+      <div *ngIf="login">
+        <div class="login_error">
+          Usuario y/o contraseña incorrecta  / Intente nuevamente
+        </div>
+        <div>
+          <img src="assets/guard.jpg" class="login_error_image">
+        </div>
+      </div>
+  </div>
+  <button type="submit" id="login_login">
+    Iniciar Sesión
+  </button>
+</form>
+</div>

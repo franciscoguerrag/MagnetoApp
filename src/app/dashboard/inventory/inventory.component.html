@@ -1,0 +1,44 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="imgcontainer">
+  <img src="assets/LOGO_DISTRIFINCA.jpg" alt="Avatar" class="avatar">
+</div>
+<div class="tittle">
+  NUESTRO INVENTARIO
+</div>
+<div class="subtittle">
+  INVENTARIO
+</div>
+<div class="container">
+  
+  <div class="container_products">
+    <div class="productListTittle">
+      <div style="height: 30px; width: 400px;">
+        Producto
+      </div>
+      <div style="height: 30px; width: 50px;">Entrada</div>
+      <div style="height: 30px; width: 50px;">Salida</div>
+      <div style="height: 30px; width: 50px;">Stock</div>
+    </div>
+    <div *ngFor="let productItem of productsReport;let i = index">
+        <div class="productList">
+          <div style="height: 30px; width: 400px;">
+            {{productItem.name}}
+          </div> 
+          <div style="height: 30px; width: 50px;">
+            {{productItem.input}}
+          </div>
+          <div style="height: 30px; width: 50px;">
+            {{productItem.output}}
+          </div>
+          <div style="height: 30px; width: 50px;">
+            {{productItem.stock}}
+          </div>
+    </div>
+  </div>
+</div>
+<div>
+  <button type="submit" id="delivery_exit" [routerLink]="['/dashboard']" class="delivery_exit">
+    <img src="assets/exit.png" class="delivery_exit_image" alt="Salir">
+  </button>
+</div>
+</div>
